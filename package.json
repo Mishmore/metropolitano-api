@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/Mishmore/metropolitano-api.git"
   },
+  "engines": {
+    "node": "8.9.0"
+  },
   "keywords": [
     "API",
     "RESTFUL",
