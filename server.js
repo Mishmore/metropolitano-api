@@ -1,4 +1,5 @@
 const express = require('express');
+const json = require('./json/districts.json');
 let app = express();
 
 app.get('/', function (req, res) {
@@ -6,20 +7,15 @@ app.get('/', function (req, res) {
 });
 
 
-const resources = [
-  {
-    id: 1,
-    name: 'Foo'
-  }
-];
+const districts = json.districts;
 
-app.get('/resources', function (req, res) {
-  res.send(resources);
+app.get('/districts', function (req, res) {
+  res.json(districts);
 });
 
-app.get('/resources/:id', function (req, res) {
+app.get('/districts/:id', function (req, res) {
   const id = parseInt(req.params.id, 10);
-  const result = resources.filter(r => r.id === id)[0];
+  const result = districts.filter(r => r.id === id)[0];
 
   if (!result) {
     res.sendStatus(404);
